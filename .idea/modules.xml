@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/MeScan.iml" filepath="$PROJECT_DIR$/.idea/modules/MeScan.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/MeScan.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/MeScan.app.iml" />
+    </modules>
+  </component>
+</project>

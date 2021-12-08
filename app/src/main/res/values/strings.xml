@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">MeScan</string>
+    <string name="capture">capture</string>
+    <string name="gallery">gallery</string>
+    <string name="switch_camera">switch Camera</string>
+    <string name="delete_button">delete button</string>
+    <string name="share_button">Share button</string>
+    <string name="back_button">back Button</string>
+    <string name="Dir_Name">Scan Me Cache</string>
+    <string name="no_files">No Files To Display</string>
+    <string name="title_text_Home">Your PDFs Will Appear Here</string>
+    <string name="check_button">check Button</string>
+</resources>
