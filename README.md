@@ -5,7 +5,7 @@ is the best scanner app that will turn your phone into a PDF scanner. Convert im
 Just use your phone camera to scan and digitize all kinds of paper documents: receipts, notes, invoices, whiteboard discussions, business cards, certificates, etc.
 * Share PDF/JPEG Files
 Easily share documents in PDF or JPEG format with friends via various ways: post on social media, send attachment or document download link through email.
-Permission Overview:
+# Permission Overview:
 1. Storage: CamScanner needs permission to store docs in your phone.
 2. Camera: CamScanner needs permission to use camera to scan docs.
 # About ScanME 
