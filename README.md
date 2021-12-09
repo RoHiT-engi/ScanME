@@ -1,5 +1,5 @@
-# ScanMECamScanner 
-is the best scanner app that will turn your phone into a PDF scanner. Convert images to pdf in a simple tap. Download it for FREE!
+# ScanME
+it is the scanner app that will turn your phone into a PDF scanner. Convert images to pdf in a simple tap. Download it for FREE!
 # Features
 * Quickly Digitize Document
 Just use your phone camera to scan and digitize all kinds of paper documents: receipts, notes, invoices, whiteboard discussions, business cards, certificates, etc.
