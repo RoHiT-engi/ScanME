@@ -13,6 +13,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -64,6 +65,7 @@ public class PDFviewerAdapter extends RecyclerView.Adapter<PDFviewerAdapter.PDFv
             context.grantUriPermission(packageName, content_uri, Intent.FLAG_GRANT_WRITE_URI_PERMISSION | Intent.FLAG_GRANT_READ_URI_PERMISSION);
         }
         holder.intent.setDataAndType(content_uri ,"application/pdf");
+        holder.shareIntent.putExtra(Intent.EXTRA_STREAM,Uri.parse(images[position].getAbsolutePath()));
 
     }
 
@@ -74,7 +76,8 @@ public class PDFviewerAdapter extends RecyclerView.Adapter<PDFviewerAdapter.PDFv
 
     public static class PDFviewerViewHolder extends RecyclerView.ViewHolder{
         private final TextView mTextView;
-        private Intent intent;
+        private Intent intent,shareIntent,share;
+        private ImageView imageView;
         public PDFviewerViewHolder(@NonNull View itemView) {
             super(itemView);
             mTextView = (TextView) itemView.findViewById(R.id.PDF_name);
@@ -86,6 +89,17 @@ public class PDFviewerAdapter extends RecyclerView.Adapter<PDFviewerAdapter.PDFv
                 @Override
                 public void onClick(View view) {
                     context.startActivity(intent);
+                }
+            });
+            shareIntent = new Intent();
+            shareIntent.setAction(Intent.ACTION_SEND);
+            shareIntent.setType("application/pdf");
+            imageView = (ImageView) itemView.findViewById(R.id.share_button);
+            imageView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    share = Intent.createChooser(shareIntent,null);
+                    context.startActivity(share);
                 }
             });
         }

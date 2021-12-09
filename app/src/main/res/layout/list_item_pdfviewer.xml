@@ -18,5 +18,12 @@
         android:textSize="24sp"
         android:layout_margin="10dp"
         />
+    <ImageView
+        android:id="@+id/share_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_share_black"
+        android:layout_margin="16dp"
+        android:paddingStart="10dp"/>
 
 </LinearLayout>
