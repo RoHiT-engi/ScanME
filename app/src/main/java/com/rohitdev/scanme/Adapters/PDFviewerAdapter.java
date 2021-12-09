@@ -4,9 +4,12 @@ import android.annotation.SuppressLint;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Environment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,6 +25,7 @@ import com.rohitdev.scanme.R;
 import java.io.File;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.List;
 
 public class PDFviewerAdapter extends RecyclerView.Adapter<PDFviewerAdapter.PDFviewerViewHolder> {
 
@@ -52,7 +56,14 @@ public class PDFviewerAdapter extends RecyclerView.Adapter<PDFviewerAdapter.PDFv
         Path fileName = path.getFileName();
         String DisplayText = String.valueOf(fileName.getFileName());
         holder.mTextView.setText(DisplayText);
-        holder.intent.setDataAndType(FileProvider.getUriForFile(context,context.getApplicationContext().getPackageName() + ".provider",images[position]),"application/pdf");
+        Log.e("Check URi",images[position].getAbsolutePath());
+        Uri content_uri = FileProvider.getUriForFile(context, context.getApplicationContext().getPackageName() + ".provider", images[position]);
+        List<ResolveInfo> resInfoList = context.getPackageManager().queryIntentActivities(holder.intent, PackageManager.MATCH_DEFAULT_ONLY);
+        for (ResolveInfo resolveInfo : resInfoList) {
+            String packageName = resolveInfo.activityInfo.packageName;
+            context.grantUriPermission(packageName, content_uri, Intent.FLAG_GRANT_WRITE_URI_PERMISSION | Intent.FLAG_GRANT_READ_URI_PERMISSION);
+        }
+        holder.intent.setDataAndType(content_uri ,"application/pdf");
 
     }
 
@@ -68,10 +79,10 @@ public class PDFviewerAdapter extends RecyclerView.Adapter<PDFviewerAdapter.PDFv
             super(itemView);
             mTextView = (TextView) itemView.findViewById(R.id.PDF_name);
             intent = new Intent(Intent.ACTION_VIEW);
-            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            itemView.setOnClickListener(new View.OnClickListener() {
+            intent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+            intent.setFlags(Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
+            mTextView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     context.startActivity(intent);

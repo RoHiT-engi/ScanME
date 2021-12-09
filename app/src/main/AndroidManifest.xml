@@ -18,6 +18,7 @@
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="com.rohitdev.scanme.provider"
+            android:requestLegacyExternalStorage="true"
             android:exported="false"
             android:grantUriPermissions="true">
             <meta-data

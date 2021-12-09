@@ -21,7 +21,7 @@ import com.rohitdev.scanme.Adapters.PDFviewerAdapter;
 import java.io.File;
 
 public class MainActivity extends AppCompatActivity {
-    private final String[] REQUIRED_PERMISSIONS = new String[]{"android.permission.CAMERA", "android.permission.WRITE_EXTERNAL_STORAGE"};
+    private final String[] REQUIRED_PERMISSIONS = new String[]{"android.permission.CAMERA", "android.permission.WRITE_EXTERNAL_STORAGE","android.permission.READ_EXTERNAL_STORAGE"};
     private final int requestCode = 1001;
     private FloatingActionButton mFloatingActionButton;
     private RecyclerView recyclerView;
