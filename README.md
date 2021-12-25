@@ -13,3 +13,6 @@ Easily share documents in PDF or JPEG format with friends via various ways: post
 2. it uses iText to convert images into pdfs
 3. uses storage to store images instead of in memory buffers 
 4. just simple scanning app for now more Features would be added soon...:)
+# code
+1. add your json file from fireBase Configuration in src folder
+
